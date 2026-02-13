@@ -1,0 +1,13 @@
+clear all;
+close all;
+clc;
+a=audiorecorder(8000,8,1);
+p='Enter recording duration';
+t=input(p);
+disp('Start speaking');
+recordblocking(a,t);
+disp('End of recording');
+play(a);
+y=getaudiodata(a);
+plot(y);
+audiowrite('mysound.wav',y,8000);
